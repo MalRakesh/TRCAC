@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard - TRCAC</title>
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <link rel="stylesheet" href="../../styles/light.css" id="theme-style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body class="dashboard student">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../../assets/images/logo.png" alt="TRCAC Logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Attendance</a></li>
+                <li><a href="#">Results</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-bell"></i></a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">New Assignments</a></li>
+                        <li><a href="#">Notifications</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="toggle-theme"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <section class="welcome-section">
+            <h2>Welcome, Student!</h2>
+            <p>Here you can access your courses, learn coding, and track your progress.</p>
+        </section>
+
+        <!-- Courses Section -->
+        <section class="course-section">
+            <h3>Course Materials</h3>
+            <div class="course-grid">
+                <div class="course-card">
+                    <h4>HTML & CSS</h4>
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0"
+                        allowfullscreen></iframe>
+                    <p>Learn basics of HTML & CSS from YouTube.</p>
+                </div>
+                <div class="course-card">
+                    <h4>Javascript</h4>
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/ER9SsR7VqLw" frameborder="0"
+                        allowfullscreen></iframe>
+                    <p>Watch full JavaScript course on YouTube.</p>
+                </div>
+                <div class="course-card">
+                    <h4>Data Structures</h4>
+                    <iframe width="100%" height="200" src="https://www.geeksforgeeks.org/data-structures/"
+                        frameborder="0"></iframe>
+                    <p>Read DSA articles from GeeksforGeeks.</p>
+                </div>
+                <div class="course-card">
+                    <h4>Coding Playground</h4>
+                    <iframe width="100%" height="200"
+                        src="https://codesandbox.io/embed/react-template-forked-7zjgg?fontsize=14&hidenavigation=1&theme=dark"
+                        sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+                    <p>Try writing code in this embedded playground.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            &copy; 2025 TRCAC. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../../scripts/main.js"></script>
+</body>
+
+</html>
