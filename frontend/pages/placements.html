@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placements - TRCAC</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        .placement-section {
+            padding: 4rem 2rem;
+            background-color: var(--background-color);
+        }
+
+        .placement-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .placement-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .chart-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Marquee Styles */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            margin: 2rem 0;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+            font-size: 1.5rem;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Reverse Marquee */
+        .marquee-reverse span {
+            animation: marquee-reverse 20s linear infinite;
+        }
+
+        @keyframes marquee-reverse {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Placement Info */
+        .placement-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card h4 {
+            margin-bottom: 1rem;
+        }
+
+        .info-card p {
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="TRCAC Logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Overview</a></li>
+                <li><a href="#">Internships</a></li>
+                <li><a href="#">Companies</a></li>
+                <li><a href="#">Training</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="toggle-theme"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Placement Hero Section -->
+    <section class="placement-header">
+        <h2>Placements at TRCAC</h2>
+        <p>We provide excellent placement opportunities and training to our students.</p>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="chart-container" data-aos="fade-up">
+        <canvas id="placementChart" width="800" height="300"></canvas>
+    </section>
+
+    <!-- Marquee Logos -->
+    <section class="marquee">
+        <span>🚀 Google &nbsp;&nbsp; 💼 Microsoft &nbsp;&nbsp; 💻 TCS &nbsp;&nbsp; 🧠 Infosys &nbsp;&nbsp; 🔒 Wipro
+            &nbsp;&nbsp; 🛍️ Amazon &nbsp;&nbsp; 🎯 Accenture</span>
+    </section>
+
+    <section class="marquee marquee-reverse">
+        <span>📈 Flipkart &nbsp;&nbsp; 🧪 IBM &nbsp;&nbsp; 🏦 HDFC &nbsp;&nbsp; 🚀 Uber &nbsp;&nbsp; 🌐 Oracle
+            &nbsp;&nbsp; 📱 Zomato</span>
+    </section>
+
+    <!-- Placement Info Cards -->
+    <section class="placement-info">
+        <div class="info-card">
+            <h4>Placement Policy</h4>
+            <p>Our placement policy ensures that all eligible students get access to top companies in India and abroad.
+                We offer 100% placement assistance.</p>
+            <a href="#" class="btn-primary">Read More</a>
+        </div>
+        <div class="info-card">
+            <h4>Internship Records</h4>
+            <p>Over 90% of students secured internships in 2023-24 across various domains like IT, Finance, Marketing,
+                and Research.</p>
+            <a href="#" class="btn-primary">View Reports</a>
+        </div>
+        <div class="info-card">
+            <h4>Training & Development</h4>
+            <p>We conduct regular workshops on resume building, mock interviews, soft skills, and technical training to
+                prepare students for placements.</p>
+            <a href="#" class="btn-primary">Join Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            &copy; 2025 TRCAC. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+
+    <!-- Chart Script -->
+    <script>
+        const ctx = document.getElementById('placementChart').getContext('2d');
+        const placementChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['2019-20', '2020-21', '2021-22', '2022-23', '2023-24'],
+                datasets: [
+                    {
+                        label: 'Internships',
+                        data: [70, 90, 110, 130, 150],
+                        backgroundColor: '#1e90ff'
+                    },
+                    {
+                        label: 'Placements',
+                        data: [60, 80, 100, 120, 140],
+                        backgroundColor: '#0f3460'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ': ' + context.raw;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Students'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

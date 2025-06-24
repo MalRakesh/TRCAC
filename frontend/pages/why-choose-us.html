@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why Choose Us - TRCAC</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/light.css" id="theme-style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .why-section {
+            padding: 4rem 2rem;
+            background-color: var(--background-color);
+        }
+
+        .why-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .why-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            flex: 1 1 200px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .counter {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .stat-title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .why-description {
+            max-width: 800px;
+            margin: auto;
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="TRCAC Logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Why Choose Us</a></li>
+                <li><a href="#">Testimonials</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="toggle-theme"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-section">
+        <div class="container">
+            <div class="why-header" data-aos="fade-up">
+                <h2>Why Choose TRCAC?</h2>
+                <p>Discover why students and teachers love our college.</p>
+            </div>
+
+            <div class="stats" data-aos="fade-left">
+                <div class="stat-item">
+                    <i class="fas fa-users icon"></i>
+                    <div class="counter" id="studentCount">0</div>
+                    <div class="stat-title">Students Enrolled</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-chalkboard-teacher icon"></i>
+                    <div class="counter" id="teacherCount">0</div>
+                    <div class="stat-title">Experienced Faculty</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-building icon"></i>
+                    <div class="counter" id="placementCount">0</div>
+                    <div class="stat-title">Placed Students</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-calendar-alt icon"></i>
+                    <div class="counter" id="eventCount">0</div>
+                    <div class="stat-title">Annual Events</div>
+                </div>
+            </div>
+
+            <div class="why-description" data-aos="fade-up">
+                <p>
+                    Thakur Ramnarayan College of Arts & Commerce offers a holistic learning environment that nurtures
+                    talent, encourages innovation, and prepares students for real-world challenges.
+                </p>
+                <p style="margin-top: 1rem;">
+                    With expert faculty, modern infrastructure, and top-notch placements, TRCAC is the ideal place to
+                    build your future.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            &copy; 2025 TRCAC. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+
+    <!-- Counter Animation Script -->
+    <script>
+        // Simulated Data
+        const stats = {
+            studentCount: 1500,
+            teacherCount: 75,
+            placementCount: 1300,
+            eventCount: 50
+        };
+
+        function animateCounter(element, endValue) {
+            let start = 0;
+            const duration = 2000;
+            const increment = Math.ceil(endValue / (duration / 10));
+
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= endValue) {
+                    element.textContent = endValue;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = start;
+                }
+            }, 10);
+        }
+
+        window.addEventListener('load', () => {
+            AOS.init();
+
+            animateCounter(document.getElementById('studentCount'), stats.studentCount);
+            animateCounter(document.getElementById('teacherCount'), stats.teacherCount);
+            animateCounter(document.getElementById('placementCount'), stats.placementCount);
+            animateCounter(document.getElementById('eventCount'), stats.eventCount);
+        });
+    </script>
+</body>
+
+</html>
