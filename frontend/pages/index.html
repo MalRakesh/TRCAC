@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRCAC - Thakur Ramnarayan College</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/light.css" id="theme-style" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="TRCAC Logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="placements.html">Placements</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-bell"></i></a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">New Job Updates</a></li>
+                        <li><a href="#">Notifications</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="toggle-theme"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade-up">
+        <div class="hero-text">
+            <h1>Welcome to TRCAC</h1>
+            <p>Your Future Starts Here</p>
+            <a href="admission.html" class="btn primary-btn">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <h2 data-aos="zoom-in">Why Choose Us?</h2>
+        <div class="stats" data-aos="fade-left">
+            <div class="stat-item">
+                <i class="fas fa-users icon"></i>
+                <span class="counter" id="studentCount">0</span>
+                <p>Students</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-chalkboard-teacher icon"></i>
+                <span class="counter" id="teacherCount">0</span>
+                <p>Teachers</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-building icon"></i>
+                <span class="counter" id="placementCount">0</span>
+                <p>Placements</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-calendar-alt icon"></i>
+                <span class="counter" id="eventCount">0</span>
+                <p>Events</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About TRCAC</h3>
+                <p>Thakur Ramnarayan College of Arts & Commerce offers world-class education with modern facilities.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Admission</a></li>
+                    <li><a href="#">Notice</a></li>
+                    <li><a href="#">Awards</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</p>
+                <p><i class="fas fa-envelope"></i> info@trcac.edu.in</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 TRCAC. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
