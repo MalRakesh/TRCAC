@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Achievements - TRCAC</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .achievements-section {
+            padding: 4rem 2rem;
+            background-color: var(--background-color);
+        }
+
+        .achievements-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .achievements-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievement-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .achievement-meta {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+
+        .achievement-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="TRCAC Logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Student Awards</a></li>
+                <li><a href="#">Faculty Awards</a></li>
+                <li><a href="#">Achievements</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="toggle-theme"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Achievements Section -->
+    <section class="achievements-section">
+        <div class="container">
+            <div class="achievements-header" data-aos="fade-up">
+                <h2>College Achievements</h2>
+                <p>Our milestones in education, research, and extracurricular excellence</p>
+            </div>
+
+            <div class="achievements-grid">
+
+                <!-- Achievement Card 1 -->
+                <div class="achievement-card" data-aos="fade-up">
+                    <div class="achievement-image" style="background-image: url('../assets/images/achievement1.jpg')">
+                    </div>
+                    <div class="achievement-title">Top Performing Arts College</div>
+                    <div class="achievement-description">
+                        Ranked No. 1 in Mumbai for academic performance in Arts stream.
+                    </div>
+                    <div class="achievement-meta">Year: 2024</div>
+                </div>
+
+                <!-- Achievement Card 2 -->
+                <div class="achievement-card" data-aos="fade-up">
+                    <div class="achievement-image" style="background-image: url('../assets/images/achievement2.jpg')">
+                    </div>
+                    <div class="achievement-title">University Rank Holder</div>
+                    <div class="achievement-description">
+                        5 students ranked among top 10 in Commerce stream in Mumbai University.
+                    </div>
+                    <div class="achievement-meta">Year: 2024</div>
+                </div>
+
+                <!-- Achievement Card 3 -->
+                <div class="achievement-card" data-aos="fade-up">
+                    <div class="achievement-image" style="background-image: url('../assets/images/achievement3.jpg')">
+                    </div>
+                    <div class="achievement-title">Best Infrastructure Award</div>
+                    <div class="achievement-description">
+                        Recognized for state-of-the-art labs, library, and learning facilities.
+                    </div>
+                    <div class="achievement-meta">Awarded by: Maharashtra Education Board</div>
+                </div>
+
+                <!-- Add more achievements here -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            &copy; 2025 TRCAC. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

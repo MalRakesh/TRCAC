@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Awards - TRCAC</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .awards-section {
+            padding: 4rem 2rem;
+            background-color: var(--background-color);
+        }
+
+        .awards-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .awards-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .award-card {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .award-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .award-meta {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+
+        .award-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="TRCAC Logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Student Awards</a></li>
+                <li><a href="#">Faculty Awards</a></li>
+                <li><a href="#">Achievements</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="toggle-theme"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Student Awards Section -->
+    <section class="awards-section">
+        <div class="container">
+            <div class="awards-header" data-aos="fade-up">
+                <h2>Student Awards</h2>
+                <p>Celebrating excellence in academics, sports, and co-curricular activities</p>
+            </div>
+
+            <div class="awards-grid">
+
+                <!-- Award Card 1 -->
+                <div class="award-card" data-aos="fade-up">
+                    <div class="award-image" style="background-image: url('../assets/images/student1.jpg')"></div>
+                    <div class="award-title">Best Academic Performer - 2024</div>
+                    <div class="award-description">
+                        Sneha Sharma received this award for scoring highest marks across all semesters.
+                    </div>
+                    <div class="award-meta">Category: Academics | Year: 2024</div>
+                </div>
+
+                <!-- Award Card 2 -->
+                <div class="award-card" data-aos="fade-up">
+                    <div class="award-image" style="background-image: url('../assets/images/student2.jpg')"></div>
+                    <div class="award-title">National Debate Championship Winner</div>
+                    <div class="award-description">
+                        TRCAC Debate Team won 1st place at National Youth Debate Festival 2024.
+                    </div>
+                    <div class="award-meta">Category: Co-Curricular | Year: 2024</div>
+                </div>
+
+                <!-- Award Card 3 -->
+                <div class="award-card" data-aos="fade-up">
+                    <div class="award-image" style="background-image: url('../assets/images/student3.jpg')"></div>
+                    <div class="award-title">Sports Trophy Winner</div>
+                    <div class="award-description">
+                        College Cricket Team won University Inter-College Cricket Tournament 2024.
+                    </div>
+                    <div class="award-meta">Category: Sports | Year: 2024</div>
+                </div>
+
+                <!-- Add more student award cards as needed -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            &copy; 2025 TRCAC. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>
