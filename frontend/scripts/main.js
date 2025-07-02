@@ -1,27 +1,24 @@
 // Counter Animation on Scroll
 const counters = document.querySelectorAll(".counter");
-const speed = 200;
+const speed = 200; // Total steps (not duration)
+let animated = false;
 
 function animateCounter(counter) {
   const targetText = counter.getAttribute("data-target");
   const target = parseInt(targetText.replace(/[^0-9]/g, "")) || 0;
   let count = 0;
 
-  const updateCount = () => {
-    const inc = Math.ceil(target / speed);
-
+  function updateCount() {
+    const step = Math.ceil(target / speed);
     if (count < target) {
-      count += inc;
+      count += step;
       counter.innerText = count.toLocaleString();
-      setTimeout(updateCount, 1);
+      requestAnimationFrame(updateCount);
     } else {
-      if (targetText.includes("+")) {
-        counter.innerText = target.toLocaleString() + "+";
-      } else {
-        counter.innerText = target.toLocaleString();
-      }
+      counter.innerText =
+        target.toLocaleString() + (targetText.includes("+") ? "+" : "");
     }
-  };
+  }
 
   updateCount();
 }
@@ -36,22 +33,17 @@ function isScrolledIntoView(el) {
 
 function handleScroll() {
   if (!statsSection) return;
-
-  if (
-    isScrolledIntoView(statsSection) &&
-    !statsSection.classList.contains("animated")
-  ) {
+  if (isScrolledIntoView(statsSection) && !animated) {
     counters.forEach(animateCounter);
-    statsSection.classList.add("animated");
+    animated = true;
     window.removeEventListener("scroll", handleScroll); // Run once
   }
 }
 
-// On load, check if section is already visible
 window.addEventListener("load", () => {
   if (statsSection && isScrolledIntoView(statsSection)) {
     counters.forEach(animateCounter);
-    statsSection.classList.add("animated");
+    animated = true;
   } else {
     window.addEventListener("scroll", handleScroll);
   }
