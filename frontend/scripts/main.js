@@ -1,21 +1,60 @@
-// Counter Animation
+// Counter Animation on Scroll
 const counters = document.querySelectorAll(".counter");
 const speed = 200;
 
-counters.forEach((counter) => {
+function animateCounter(counter) {
+  const targetText = counter.getAttribute("data-target");
+  const target = parseInt(targetText.replace(/[^0-9]/g, "")) || 0;
+  let count = 0;
+
   const updateCount = () => {
-    const target = +counter.getAttribute("data-target");
-    const count = +counter.innerText;
     const inc = Math.ceil(target / speed);
 
     if (count < target) {
-      counter.innerText = count + inc;
+      count += inc;
+      counter.innerText = count.toLocaleString();
       setTimeout(updateCount, 1);
     } else {
-      counter.innerText = target;
+      if (targetText.includes("+")) {
+        counter.innerText = target.toLocaleString() + "+";
+      } else {
+        counter.innerText = target.toLocaleString();
+      }
     }
   };
+
   updateCount();
+}
+
+// Scroll Observer
+const statsSection = document.querySelector(".why-choose-us");
+
+function isScrolledIntoView(el) {
+  const rect = el.getBoundingClientRect();
+  return rect.top <= window.innerHeight - 50 && rect.bottom >= 0;
+}
+
+function handleScroll() {
+  if (!statsSection) return;
+
+  if (
+    isScrolledIntoView(statsSection) &&
+    !statsSection.classList.contains("animated")
+  ) {
+    counters.forEach(animateCounter);
+    statsSection.classList.add("animated");
+    window.removeEventListener("scroll", handleScroll); // Run once
+  }
+}
+
+// On load, check if section is already visible
+window.addEventListener("load", () => {
+  if (statsSection && isScrolledIntoView(statsSection)) {
+    counters.forEach(animateCounter);
+    statsSection.classList.add("animated");
+  } else {
+    window.addEventListener("scroll", handleScroll);
+  }
 });
 
 // Theme Toggle
