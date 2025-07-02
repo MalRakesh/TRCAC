@@ -1,38 +1,46 @@
 // Counter Animation on Scroll
 const counters = document.querySelectorAll(".counter");
-const speed = 200; // Total steps (not duration)
 let animated = false;
 
 function animateCounter(counter) {
   const targetText = counter.getAttribute("data-target");
   const target = parseInt(targetText.replace(/[^0-9]/g, "")) || 0;
-  let count = 0;
 
-  function updateCount() {
-    const step = Math.ceil(target / speed);
-    if (count < target) {
-      count += step;
-      counter.innerText = count.toLocaleString();
+  let count = 0;
+  const duration = 2000; // total animation time in ms
+  const startTime = performance.now();
+
+  function updateCount(currentTime) {
+    const elapsedTime = currentTime - startTime;
+    const progress = Math.min(elapsedTime / duration, 1);
+    const increment = Math.floor(progress * target);
+
+    counter.innerText = increment.toLocaleString();
+
+    if (progress < 1) {
       requestAnimationFrame(updateCount);
     } else {
+      // Append '+' if present
       counter.innerText =
         target.toLocaleString() + (targetText.includes("+") ? "+" : "");
     }
   }
 
-  updateCount();
+  requestAnimationFrame(updateCount);
 }
 
-// Scroll Observer
+// Scroll Detection
 const statsSection = document.querySelector(".why-choose-us");
 
 function isScrolledIntoView(el) {
+  if (!el) return false;
   const rect = el.getBoundingClientRect();
   return rect.top <= window.innerHeight - 50 && rect.bottom >= 0;
 }
 
 function handleScroll() {
   if (!statsSection) return;
+
   if (isScrolledIntoView(statsSection) && !animated) {
     counters.forEach(animateCounter);
     animated = true;
@@ -40,6 +48,7 @@ function handleScroll() {
   }
 }
 
+// On page load, check if section is already visible
 window.addEventListener("load", () => {
   if (statsSection && isScrolledIntoView(statsSection)) {
     counters.forEach(animateCounter);
@@ -67,8 +76,10 @@ window.addEventListener("scroll", () => {
   btn.classList.toggle("show", window.scrollY > 300);
 });
 
-// AOS Init
-AOS.init();
+// AOS Init (only if loaded)
+if (typeof AOS !== "undefined") {
+  AOS.init();
+}
 
 // Mobile Menu Toggle
 document.querySelector(".hamburger").addEventListener("click", () => {
