@@ -85,3 +85,25 @@ if (typeof AOS !== "undefined") {
 document.querySelector(".hamburger").addEventListener("click", () => {
   document.querySelector(".nav-links").classList.toggle("active");
 });
+
+// Home Page Slider 
+const hero = document.getElementById("heroSlider");
+const images = [
+  "../frontend/assets/images/1.jpg",
+  "../frontend/assets/images/2.jpg",
+  "../frontend/assets/images/3.jpg",
+];
+let currentIndex = 0;
+
+function changeHeroBackground() {
+  hero.style.backgroundImage = `url('${images[currentIndex]}')`;
+  currentIndex = (currentIndex + 1) % images.length;
+}
+
+// Change every 5 seconds
+setInterval(changeHeroBackground, 5000);
+
+// Set initial background
+window.addEventListener("load", () => {
+  hero.style.backgroundImage = `url('${images[0]}')`;
+});
