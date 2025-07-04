@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Principal's Message - TRCAC</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        .message-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .message-card {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+        }
+
+        .principal-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .principal-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .principal-role {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .principal-image {
+                width: 90px;
+                height: 90px;
+            }
+
+            .principal-name {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="about-page">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="TRCAC Logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./about-trust.html">About Trust</a></li>
+                <li><a href="./trcac.html">TRCAC</a></li>
+                <li><a href="./chairman-message.html">Chairman</a></li>
+                <li><a href="#">Principal</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="toggle-theme"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+        <p>Home / Principal's Message</p>
+        <h2>Principal's Message</h2>
+    </div>
+
+    <!-- Message Section -->
+    <section class="message-section container">
+        <div class="message-card">
+            <img src="../assets/principal/principal.jpg" alt="Dr. Sumathi Rajkumar"
+                class="principal-image">
+            <p>
+                “Education is not just about learning facts, but about developing the wisdom to apply them for a better
+                world.”
+            </p>
+            <p>
+                For the past decade, Thakur Ramnarayan College of Arts and Commerce has scaled several heights in
+                delivering peerless education and creating a humane, inclusive society.
+            </p>
+            <p>
+                Our Vision is to reach excellence through academic and research capabilities. Our team of highly
+                inspired and motivated faculty members will fuel the institution’s ascent on the trajectory to success.
+            </p>
+            <p>
+                As educators, it is our moral duty to guide and support students to achieve their academic and personal
+                goals. We believe in equipping our students with modern, relevant skill sets so they attain professional
+                success and become responsible global citizens.
+            </p>
+            <small>— Dr. Sumathi Rajkumar</small>
+            <div class="principal-role">Principal</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-bottom">&copy; 2025 TRCAC. All rights reserved.</div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../scripts/main.js"></script>
+</body>
+
+</html>
