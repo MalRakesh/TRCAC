@@ -89,9 +89,11 @@ document.querySelector(".hamburger").addEventListener("click", () => {
 // Home Page Slider 
 const hero = document.getElementById("heroSlider");
 const images = [
-  "../frontend/assets/images/1.jpg",
-  "../frontend/assets/images/2.jpg",
-  "../frontend/assets/images/3.jpg",
+  "../frontend/assets/images/trcac_admin-office.jpg",
+  "../frontend/assets/images/trcac_entry.jpg",
+  "../frontend/assets/images/trcac_building.jpg",
+  "../frontend/assets/images/trcac_library.jpg",
+  "../frontend/assets/images/trcac_lab.jpg",
 ];
 let currentIndex = 0;
 
