@@ -5,9 +5,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chairman's Message - TRCAC</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <!-- Page-Specific Styles (Copy from Principal message) -->
+    <style>
+        .message-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .message-card {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+        }
+
+        .principal-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .principal-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .principal-role {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            .principal-image {
+                width: 90px;
+                height: 90px;
+            }
+
+            .principal-name {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 
 <body class="about-page">
@@ -22,8 +77,7 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="./about-trust.html">About Trust</a></li>
                 <li><a href="./trcac.html">TRCAC</a></li>
-                <li><a href="#" class="active">Chairman's Message</a></li>
-                <li><a href="./principal-message.html">Principal</a></li>
+                <li><a href="#" class="active">Chairman</a></li>
             </ul>
         </nav>
         <button class="hamburger"><i class="fas fa-bars"></i></button>
@@ -32,25 +86,38 @@
 
     <!-- Breadcrumb -->
     <div class="container">
-        <p>Home / Chairman's Message</p>
+        <p><a href="../../index.html">Home</a> / Chairman's Message</p>
         <h2>Chairman's Message</h2>
-        <div class="message-card">
-            <p>
-                “Don't limit your challenges, challenge your limits.”
-            </p>
-            <p>
-                We at Thakur Ramnarayan College of Arts and Commerce aim to discover, enroot and delve into the hidden
-                talents of each student. This will be achieved only when we move forward hand-in-hand with sincerity,
-                purpose and dedication.
-            </p>
-            <p>
-                As the Secretary of the Institution, I am committed to providing a unique platform to the students,
-                enabling them to become value-based individuals and responsible citizens.
-            </p>
-            <strong>— Shri Jitendra R. Singh</strong>
-            <small>Incharge Trustee</small>
-        </div>
     </div>
+
+    <!-- Message Section -->
+    <section class="message-section container">
+        <div class="message-card">
+            <img src="../assets/principal/chairman.png" alt="Shri V.K. Singh" class="principal-image">
+            <p>
+                “Education is not just about learning facts, but about developing the wisdom to apply them for a better
+                world.”
+            </p>
+            <p>
+                The Thakur Educational Group is a premier group of institutions which has been contributing to social
+                progress by strengthening the teaching-learning process through innovative practices and thereby
+                creating brilliant and innovative students who are showing their excellence in all spheres all over the
+                globe.
+            </p>
+            <p>
+                To continue the spirit of innovations and excellence, Thakur Educational Group has taken a step further
+                to educate the western suburbs. Our entire team of Thakur Ramnarayan College of Arts and Commerce will
+                provide a comprehensive collegiate experience that is anchored in the rich traditions of a quality
+                education.
+            </p>
+            <p>
+                We are committed to providing the best possible learning environment to assist the students in
+                discovering their potential to the maximum.
+            </p>
+            <small>— Shri V.K. Singh</small>
+            <div class="principal-role">Chairman</div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -62,6 +129,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Scripts -->
     <script src="../scripts/main.js"></script>
 </body>
 
