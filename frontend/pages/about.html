@@ -5,10 +5,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About TRCAC</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
     <style>
+        .about-hero {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: auto;
+        }
+
         .about-section {
             padding: 4rem 2rem;
             background-color: var(--background-color);
@@ -32,10 +53,39 @@
         .about-card h3 {
             margin-bottom: 1rem;
         }
+
+        .about-image-section {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 4rem 2rem;
+            background-color: var(--background-color);
+        }
+
+        .about-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .about-image-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-image {
+                width: 90%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 
-<body>
+<body class="about-page">
 
     <!-- Header -->
     <header class="site-header">
@@ -44,8 +94,8 @@
         </div>
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#" class="active">About Us</a></li>
                 <li><a href="#">Departments</a></li>
                 <li><a href="#">Faculty</a></li>
             </ul>
@@ -53,6 +103,15 @@
         <button class="hamburger"><i class="fas fa-bars"></i></button>
         <button class="toggle-theme"><i class="fas fa-moon"></i></button>
     </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1>Thakur Ramnarayan College of Arts & Commerce</h1>
+        <p>
+            The college is a comprehensive system where individuals are able to interact with their peers in a deep,
+            meaningful way both inside and outside of the classrooms.
+        </p>
+    </section>
 
     <!-- About Section -->
     <section class="about-section">
@@ -79,14 +138,32 @@
                     student potential and providing a holistic learning experience.
                 </p>
             </div>
+            <div class="about-card">
+                <h3>Learning Communities</h3>
+                <p>
+                    Students shall engage with many learning communities while at TRCAC: when they join with their
+                    entering class in courses that build their skills and sense of opportunity; they develop close ties
+                    through their major; and connect to local and national communities through internships, service
+                    learning, and community service.
+                </p>
+                <p>
+                    Broad curricular choices encourage students to explore personal interests, meet diverse groups
+                    across campus, or prepare for specific graduate and professional programs.
+                </p>
+            </div>
         </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="about-image-section">
+        <img src="../assets/images/trcac_building.jpg" alt="TRCAC Building" class="about-image">
+        <img src="../assets/images/trcac_admin-office.jpg" alt="College Reception" class="about-image">
+        <img src="../assets/images/trcac_building.jpg" alt="TRCAC Campus" class="about-image">
     </section>
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="footer-bottom">
-            &copy; 2025 TRCAC. All rights reserved.
-        </div>
+        <div class="footer-bottom">&copy; 2025 TRCAC. All rights reserved.</div>
     </footer>
 
     <!-- Scroll Top Button -->
@@ -96,6 +173,7 @@
 
     <!-- Scripts -->
     <script src="../scripts/main.js"></script>
+
 </body>
 
 </html>
