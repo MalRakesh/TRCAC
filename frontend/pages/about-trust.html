@@ -5,9 +5,166 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Trust - TRCAC</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <style>
+        /* Hero Section */
+        .trust-hero {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .trust-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .trust-hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Banner Image */
+        .banner-section {
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .banner-section img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            padding: 2rem;
+        }
+
+        /* Vertical Line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--secondary-color);
+            z-index: 1;
+            background: linear-gradient(to bottom, #ff6b6b 0%, #1e90ff 100%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin: 3rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Even Items: Left Side */
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            text-align: left;
+            direction: ltr;
+        }
+
+        /* Odd Items: Right Side */
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-end;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .timeline-year {
+            flex: 0 0 100px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            min-width: 100px;
+            position: relative;
+            top: 40px;
+        }
+
+        .timeline-content {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .timeline-content h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Circles on the side of the line */
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: calc(50% - 10px);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: 100%;
+            border: 4px solid var(--background-color);
+            background: var(--secondary-color);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: 100%;
+            border: 4px solid var(--background-color);
+            background: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start !important;
+            }
+
+            .timeline-year {
+                margin-bottom: 0.5rem;
+            }
+
+            .timeline-content::after {
+                left: -30px;
+                top: 10px;
+                background: var(--secondary-color);
+            }
+
+            .timeline-content,
+            .timeline-year {
+                width: 100%;
+                text-align: left !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="about-page">
@@ -20,7 +177,14 @@
         <nav class="navbar">
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="#">About Trust</a></li>
+                <li class="dropdown">
+                    <a href="#">About Trust</a>
+                    <ul class="dropdown-content">
+                        <li><a href="./trcac.html">TRCAC</a></li>
+                        <li><a href="./chairman-message.html">Chairman's Message</a></li>
+                        <li><a href="./principal-message.html">Principal's Message</a></li>
+                    </ul>
+                </li>
                 <li><a href="./trcac.html">TRCAC</a></li>
                 <li><a href="./chairman-message.html">Chairman</a></li>
                 <li><a href="./principal-message.html">Principal</a></li>
@@ -30,42 +194,104 @@
         <button class="toggle-theme"><i class="fas fa-moon"></i></button>
     </header>
 
-    <!-- Breadcrumb -->
-    <div class="container">
-        <p>Home / About Trust</p>
-        <h2>About Thakur Educational Trust</h2>
-        <div class="trust-content">
-            <p>
-                A young sapling planted initially has blossomed into a tree spreading its branches and stems of
-                education — an example is Thakur Educational Trust.
-            </p>
-            <p>
-                Thakur Educational Trust was formed by the Thakur family as a sense of responsibility of repaying the
-                social debt. The trust was registered as a Public Trust in the year 1990 with an objective to lend a
-                helping hand towards the welfare of the society and reform the educational system.
-            </p>
-            <p>
-                Today, it includes top institutions like Thakur Bhagwanidevi Musafir Public School, Thakur Global
-                Business School, Thakur College of Science & Commerce, and more. All institutions under this trust are
-                ISO-certified.
-            </p>
-            <h3 style="margin-top: 2rem;">Institutions Under Trust</h3>
-            <ul>
-                <li>Thakur Bhagwanidevi Musafir Public School – 2023</li>
-                <li>Thakur Global Business School – 2020</li>
-                <li>Thakur College of Science – 2016</li>
-                <li>Thakur Vidya Mandir Global School – 2016</li>
-                <li>Thakur Shyamnarayan High School – 2013</li>
-                <li>Thakur Public School – 2003</li>
-                <li>Thakur Institute of Career Advancement – 2001</li>
-                <li>Thakur College of Engineering – 2001</li>
-                <li>Thakur Ramnarayan College of Law – 2017</li>
-                <li>Thakur Ramnarayan College of Arts & Commerce – 2016</li>
-                <li>Thakur Polytechnic – 1998</li>
-                <li>Thakur Vidya Mandir High School – 1990</li>
-            </ul>
-        </div>
+    <!-- Trust Hero Section -->
+    <section class="trust-hero">
+        <h1>About Thakur Educational Trust</h1>
+        <p>
+            A young sapling planted initially has blossomed into a tree spreading its branches and stems of education —
+            an example is Thakur Educational Trust.
+        </p>
+    </section>
+
+    <!-- Banner Image -->
+    <div class="banner-section">
+        <img src="../assets/principal/trust.png" alt="Thakur Educational Trust Banner"
+            style="width:20%; max-width: 900px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     </div>
+
+    <!-- Roadmap Timeline -->
+    <h2 style="text-align:center; margin: 4rem 0;">Trust Milestones & Institutions Over Time</h2>
+    <section class="timeline container">
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-year">1990</div>
+            <div class="timeline-content">
+                <h4>Thakur Vidya Mandir High School</h4>
+                <p>The foundation stone of Thakur Educational Trust was laid with this school.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-year">2001</div>
+            <div class="timeline-content">
+                <h4>Thakur Polytechnic</h4>
+                <p>Technical education introduced at undergraduate level.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-year">2002</div>
+            <div class="timeline-content">
+                <h4>Thakur Institute of Management Studies & Research</h4>
+                <p>Management studies and research programs launched.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-year">2006</div>
+            <div class="timeline-content">
+                <h4>Thakur Institute of Aviation Technology</h4>
+                <p>Pioneering steps in aviation technology education.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-year">2008</div>
+            <div class="timeline-content">
+                <h4>Thakur School of Global Education</h4>
+                <p>Global standards in education set through this institute.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-year">2013</div>
+            <div class="timeline-content">
+                <h4>Thakur Shyamnarayan High School (English Medium)</h4>
+                <p>Launched English-medium school for better global exposure.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-year">2016</div>
+            <div class="timeline-content">
+                <h4>Thakur Ramnarayan College of Arts & Commerce</h4>
+                <p>A major milestone in arts and commerce education.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-year">2017</div>
+            <div class="timeline-content">
+                <h4>Thakur Ramnarayan College of Law</h4>
+                <p>Legal education expanded with the launch of Law College.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-year">2020</div>
+            <div class="timeline-content">
+                <h4>Thakur Global Business School</h4>
+                <p>World-class business management education introduced.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-year">2023</div>
+            <div class="timeline-content">
+                <h4>Thakur Bhagwanidevi Musafir Public School</h4>
+                <p>Largest public school project of the trust so far.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -77,7 +303,13 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../scripts/main.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
 </body>
 
 </html>
