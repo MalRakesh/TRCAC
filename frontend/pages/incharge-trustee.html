@@ -5,9 +5,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Incharge Trustee's Message - TRCAC</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <style>
+        .message-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .message-card {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            bottom: 30px;
+        }
+
+        .incharge-trustee-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+            margin-bottom: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .incharge-trustee-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            text-align: end;
+            display: block;
+        }
+
+        .incharge-trustee-role {
+            font-size: 1rem;
+            color: #ccc;
+            text-align: end;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .incharge-trustee-image {
+                width: 90px;
+                height: 90px;
+            }
+
+            .incharge-trustee-name {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 
 <body class="about-page">
@@ -20,7 +82,7 @@
         <nav class="navbar">
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
-    
+
                 <!-- About Us Dropdown -->
                 <li class="dropdown">
                     <a href="#">About Us</a>
@@ -28,40 +90,48 @@
                         <li><a href="./about-trust.html">About Trust</a></li>
                         <li><a href="./chairman-message.html">Chairman's Message</a></li>
                         <li><a href="./principal-message.html">Principal's Message</a></li>
-                        <li><a href="./incharge-trustee.html">Incharge Trustee's Message</a></li>
+                        <li><a href="#" class="active">Incharge Trustee's Message</a></li>
                     </ul>
                 </li>
-    
-                <li><a href="#">Departments</a></li>
-                <li><a href="#">Faculty</a></li>
+
+                <li><a href="./trcac.html">TRCAC</a></li>
+                <li><a href="./trustee-message.html">Trustee</a></li>
+                <li><a href="./principal-message.html">Principal</a></li>
             </ul>
         </nav>
         <button class="hamburger"><i class="fas fa-bars"></i></button>
         <button class="toggle-theme"><i class="fas fa-moon"></i></button>
     </header>
 
-
     <!-- Breadcrumb -->
-    <div class="container">
-        <p>Home / Incharge Trustee's Message</p>
+    <div class="container" style="text-align: center;">
+        <p><a href="../index.html">Home</a> / <a href="./incharge-trustee.html"> Incharge Trustee's Message</a></p>
         <h2>Incharge Trustee's Message</h2>
-        <div class="message-card">
-            <p>
+    </div>
+
+    <!-- Message Section -->
+    <section class="message-section container">
+        <div class="message-card" data-aos="fade-up">
+            <img src="../assets/principal/incharge_trustee.png" alt="Shri Jitendra R. Singh"
+                class="incharge-trustee-image" />
+
+            <p style="color: gold; font-weight: bold; text-align: center;">
                 “Don't limit your challenges, challenge your limits.”
             </p>
             <p>
                 We at Thakur Ramnarayan College of Arts and Commerce aim to discover, enroot and delve into the hidden
-                talents and magic lying dormant inside our students. This will be achieved only when we move forward
-                hand-in-hand with sincerity, purpose and dedication to achieve heights of glory.
+                talents and magic lying dormant inside all of our students. This will be achieved only when we move
+                forward hand-in-hand with sincerity, purpose and dedication to achieve heights of glory.
             </p>
             <p>
-                From academics to co-curricular activities, perseverance and mindfulness are entrenched in the hearts of
-                each student, making them academically distinct and brilliant human beings.
+                From academics to co-curricular and extra-curricular activities, perseverance and mindfulness are
+                entrenched in the hearts of each student, not only making them academically distinct but brilliant human
+                beings.
             </p>
-            <strong>— Shri Jitendra R. Singh</strong>
-            <small>Incharge Trustee</small>
+            <small class="incharge-trustee-name">— Shri Jitendra R. Singh</small>
+            <div class="incharge-trustee-role">Incharge Trustee</div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -73,7 +143,15 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../scripts/main.js"></script>
+
+    <!-- AOS Init -->
+    <script>
+        AOS.init();
+    </script>
+
 </body>
 
 </html>
