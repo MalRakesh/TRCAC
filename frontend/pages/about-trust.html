@@ -8,8 +8,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="../styles/style.css" />
-    <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="../styles/light.css" id="theme-style" />    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
     <style>
         /* Hero Section */
@@ -189,7 +188,32 @@
                     </ul>
                 </li>
     
-                <li><a href="#">Departments</a></li>
+                <li class="dropdown">
+                    <a href="#">Departments</a>
+                    <ul class="dropdown-content">
+                        <!-- Junior College Sub-dropdown -->
+                        <li class="dropdown-submenu">
+                            <a href="#">Junior College</a>
+                            <ul class="dropdown-subcontent">
+                                <li><a href="#">Arts</a></li>
+                                <li><a href="#">Commerce</a></li>
+                            </ul>
+                        </li>
+                
+                        <!-- Degree College Sub-dropdown -->
+                        <li class="dropdown-submenu">
+                            <a href="#">Degree College</a>
+                            <ul class="dropdown-subcontent">
+                                <li><a href="#">B.A.</a></li>
+                                <li><a href="#">B.A.M.M.C.</a></li>
+                                <li><a href="#">B.Com.</a></li>
+                                <li><a href="#">B.M.S.</a></li>
+                                <li><a href="#">B.A.F.</a></li>
+                                <li><a href="#">B.Sc. (I.T.)</a></li>
+                                <li><a href="#">B.Sc. (C.S.)</a></li>
+                            </ul>
+                        </li>
+                    </ul>           </li>
                 <li><a href="#">Faculty</a></li>
             </ul>
         </nav>
@@ -213,7 +237,7 @@
     </div>
 
     <!-- Roadmap Timeline -->
-    <h2 style="text-align:center; margin: 4rem 0;">Trust Milestones & Institutions Over Time</h2>
+    <h2 style="text-align:center; margin: 4rem 0; font-size: xxx-large;">Trust Milestones & Institutions Over Time</h2>
     <section class="timeline container">
         <div class="timeline-item" data-aos="fade-left">
             <div class="timeline-year">1990</div>
@@ -309,9 +333,6 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../scripts/main.js"></script>
-    <script>
-        AOS.init();
-    </script>
 
 </body>
 
