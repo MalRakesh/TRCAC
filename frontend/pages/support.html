@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support - TRCAC</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/light.css" id="theme-style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css " />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos @2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        .breadcrumb {
+            text-align: center;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .support-hero {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .support-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .support-section {
+            padding: 4rem 2rem;
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .support-card {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .support-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .faq-answer {
+            padding: 1rem;
+            background-color: #f0f0f0;
+            border-left: 4px solid var(--secondary-color);
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        .chat-btn {
+            background-color: #075e54;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .chat-btn:hover {
+            background-color: #054a43;
+        }
+    </style>
+</head>
+
+<body class="about-page">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="TRCAC Logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./courses.html">Courses</a></li>
+                <li><a href="./placements.html">Placements</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="#" class="active">Support</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="toggle-theme"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="../index.html">Home</a> / <a href="#" class="active">Support</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="support-hero" data-aos="fade-up">
+        <h1>Need Help? We've Got You Covered</h1>
+        <p>From admissions to technical support, our team is here to guide you every step of the way.</p>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support-section">
+        <div class="container" data-aos="fade-up">
+
+            <!-- Support Cards -->
+            <div class="support-grid">
+                <div class="support-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Knowledge Base</h3>
+                    <p>Find step-by-step guides, FAQs, and tutorials for students and parents.</p>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-download"></i>
+                    <h3>Download Brochure</h3>
+                    <p>Get detailed info about courses, fees, and facilities.</p>
+                    <a href="../assets/docs/trcac-brochure.pdf" class="download-btn" download>Download PDF</a>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Helpline</h3>
+                    <p>Call us anytime: <strong>077100 58545</strong></p>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team in real-time.</p>
+                    <div class="chat-btn">Start Chat</div>
+                </div>
+            </div>
+
+            <!-- Student Resources -->
+            <h2 style="text-align:center; margin-bottom:2rem;" data-aos="fade-up">Student Resources</h2>
+            <div class="support-grid" data-aos="fade-left">
+                <div class="support-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Admission Form</h3>
+                    <p>Download and fill out the admission form.</p>
+                    <a href="../assets/docs/admission-form.pdf" class="download-btn" download>Download</a>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Academic Calendar</h3>
+                    <p>View important dates and events.</p>
+                    <a href="../assets/docs/academic-calendar.pdf" class="download-btn" download>Download</a>
+                </div>
+
+                <div class="support-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Online Learning</h3>
+                    <p>Access recorded lectures and study materials.</p>
+                    <a href="https://lms.trcac.edu.in " class="download-btn">Visit LMS</a>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <span>How do I apply for admission?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Visit the Admission page and fill the online form with required documents like 10th/12th
+                        marksheet, ID proof, and passport-size photo.
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <span>What are the office hours?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Our office is open from Monday to Saturday, 9:00 AM to 6:00 PM. Closed on Sundays and public
+                        holidays.
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <span>Do you offer online classes?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we offer hybrid learning with recorded lectures and live sessions for enrolled students.
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up">
+                    <div class="faq-question">
+                        <span>How can I get placement support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Our Placement Cell provides resume building, mock interviews, and direct access to company
+                        drives.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-bottom">&copy; 2025 TRCAC. All rights reserved.</div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos @2.3.1/dist/aos.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script>
+        AOS.init();
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = item.querySelector('i');
+                const answer = item.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
