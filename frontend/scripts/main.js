@@ -60,14 +60,46 @@ window.addEventListener("load", () => {
 
 // Theme Toggle
 document.querySelector(".toggle-theme").addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  const themeLink = document.getElementById("theme-style");
-  themeLink.setAttribute(
-    "href",
-    document.body.classList.contains("dark-mode")
-      ? "styles/dark.css"
-      : "styles/light.css"
-  );
+    document.body.classList.toggle("dark-mode");
+    const themeLink = document.getElementById("theme-style");
+    const icon = document.querySelector(".toggle-theme i");
+
+    const isDarkMode = document.body.classList.contains("dark-mode");
+
+    // Update Theme CSS
+    themeLink.setAttribute("href", isDarkMode ? "../styles/dark.css" : "../styles/light.css");
+
+    // Toggle Icon
+    if (isDarkMode) {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+    } else {
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+    }
+
+    // Save to localStorage
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+});
+
+// On Page Load: Restore Theme
+window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    const themeLink = document.getElementById("theme-style");
+    const icon = document.querySelector(".toggle-theme i");
+    const isDarkMode = savedTheme === "dark";
+
+    if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+        themeLink.setAttribute("href", "../styles/dark.css");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+    } else {
+        document.body.classList.remove("dark-mode");
+        themeLink.setAttribute("href", "../styles/light.css");
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+    }
 });
 
 // Scroll Top Button
