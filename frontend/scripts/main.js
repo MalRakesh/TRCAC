@@ -67,15 +67,19 @@ document.querySelector(".toggle-theme").addEventListener("click", () => {
     const isDarkMode = document.body.classList.contains("dark-mode");
 
     // Update Theme CSS
-    themeLink.setAttribute("href", isDarkMode ? "../styles/dark.css" : "../styles/light.css");
+    themeLink.setAttribute("href", isDarkMode ? "./styles/dark.css" : "./styles/light.css");
 
     // Toggle Icon
     if (isDarkMode) {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
+      document.body.classList.add("dark-mode");
+      themeLink.setAttribute("href", "./styles/dark.css");
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
     } else {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
+      document.body.classList.remove("dark-mode");
+      themeLink.setAttribute("href", "./styles/light.css");
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
     }
 
     // Save to localStorage
