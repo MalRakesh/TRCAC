@@ -65,9 +65,10 @@ document.querySelector(".toggle-theme").addEventListener("click", () => {
   // ✅ Sab jagah relative path: ../../styles/
   const basePath = "../../styles/";
 
+  // Update Theme CSS
   themeLink.setAttribute(
     "href",
-    isDarkMode ? basePath + "dark.css" : basePath + "light.css"
+    isDarkMode ? "../../styles/dark.css" : "../../styles/light.css"
   );
 
   if (isDarkMode) {

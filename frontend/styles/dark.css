@@ -1,7 +1,8 @@
+/* frontend/styles/dark.css */
 :root {
-  --background-color: #121212;
-  --text-color: #eeeeee;
-  --primary-color: #F75C03;
-  --secondary-color: #F75C03;
-  --accent-color: #F75C03;
+    --background-color: #121212;
+    --text-color: #eeeeee;
+    --primary-color: #F75C03;
+    --secondary-color: #F75C03;
+    --accent-color: #F75C03;
 }
