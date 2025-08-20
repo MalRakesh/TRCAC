@@ -4,10 +4,9 @@ let animated = false;
 
 function animateCounter(counter) {
   const targetText = counter.getAttribute("data-target");
-  const target = parseInt(targetText.replace(/[^0-9]/g, "")) || 0;
+  const target = parseInt(targetText.replace(/[^0-9]/g, ""), 10) || 0;
 
-  let count = 0;
-  const duration = 2000; // total animation time in ms
+  const duration = 2000;
   const startTime = performance.now();
 
   function updateCount(currentTime) {
@@ -20,7 +19,6 @@ function animateCounter(counter) {
     if (progress < 1) {
       requestAnimationFrame(updateCount);
     } else {
-      // Append '+' if present
       counter.innerText =
         target.toLocaleString() + (targetText.includes("+") ? "+" : "");
     }
@@ -40,15 +38,13 @@ function isScrolledIntoView(el) {
 
 function handleScroll() {
   if (!statsSection) return;
-
   if (isScrolledIntoView(statsSection) && !animated) {
     counters.forEach(animateCounter);
     animated = true;
-    window.removeEventListener("scroll", handleScroll); // Run once
+    window.removeEventListener("scroll", handleScroll);
   }
 }
 
-// On page load, check if section is already visible
 window.addEventListener("load", () => {
   if (statsSection && isScrolledIntoView(statsSection)) {
     counters.forEach(animateCounter);
@@ -60,50 +56,52 @@ window.addEventListener("load", () => {
 
 // Theme Toggle
 document.querySelector(".toggle-theme").addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const themeLink = document.getElementById("theme-style");
-    const icon = document.querySelector(".toggle-theme i");
+  document.body.classList.toggle("dark-mode");
+  const themeLink = document.getElementById("theme-style");
+  const icon = document.querySelector(".toggle-theme i");
 
-    const isDarkMode = document.body.classList.contains("dark-mode");
+  const isDarkMode = document.body.classList.contains("dark-mode");
 
-    // Update Theme CSS
-    themeLink.setAttribute("href", isDarkMode ? "./styles/dark.css" : "./styles/light.css");
+  // ✅ Sab jagah relative path: ../../styles/
+  const basePath = "../../styles/";
 
-    // Toggle Icon
-    if (isDarkMode) {
-      document.body.classList.add("dark-mode");
-      themeLink.setAttribute("href", "./styles/dark.css");
-      icon.classList.remove("fa-moon");
-      icon.classList.add("fa-sun");
-    } else {
-      document.body.classList.remove("dark-mode");
-      themeLink.setAttribute("href", "./styles/light.css");
-      icon.classList.remove("fa-sun");
-      icon.classList.add("fa-moon");
-    }
+  themeLink.setAttribute(
+    "href",
+    isDarkMode ? basePath + "dark.css" : basePath + "light.css"
+  );
 
-    // Save to localStorage
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  if (isDarkMode) {
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+  } else {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+  }
+
+  localStorage.setItem("theme", isDarkMode ? "dark" : "light");
 });
 
 // On Page Load: Restore Theme
 window.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme");
-    const themeLink = document.getElementById("theme-style");
-    const icon = document.querySelector(".toggle-theme i");
-    const isDarkMode = savedTheme === "dark";
+  const savedTheme = localStorage.getItem("theme");
+  const themeLink = document.getElementById("theme-style");
+  const icon = document.querySelector(".toggle-theme i");
+  const isDarkMode = savedTheme === "dark";
 
-    if (isDarkMode) {
-        document.body.classList.add("dark-mode");
-        themeLink.setAttribute("href", "../styles/dark.css");
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-    } else {
-        document.body.classList.remove("dark-mode");
-        themeLink.setAttribute("href", "../styles/light.css");
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-    }
+  // ✅ Sab jagah ../../styles/ use karo
+  const basePath = "../../styles/";
+
+  if (isDarkMode) {
+    document.body.classList.add("dark-mode");
+    themeLink.setAttribute("href", basePath + "dark.css");
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+  } else {
+    document.body.classList.remove("dark-mode");
+    themeLink.setAttribute("href", basePath + "light.css");
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+  }
 });
 
 // Scroll Top Button
@@ -112,7 +110,7 @@ window.addEventListener("scroll", () => {
   btn.classList.toggle("show", window.scrollY > 300);
 });
 
-// AOS Init (only if loaded)
+// AOS Init
 if (typeof AOS !== "undefined") {
   AOS.init();
 }
@@ -122,14 +120,14 @@ document.querySelector(".hamburger").addEventListener("click", () => {
   document.querySelector(".nav-links").classList.toggle("active");
 });
 
-// Home Page Slider 
+// Home Page Slider
 const hero = document.getElementById("heroSlider");
 const images = [
-  "../frontend/assets/images/trcac_admin-office.jpg",
-  "../frontend/assets/images/trcac_entry.jpg",
-  "../frontend/assets/images/trcac_building.jpg",
-  "../frontend/assets/images/trcac_library.jpg",
-  "../frontend/assets/images/trcac_lab.jpg",
+  "../../assets/images/trcac_admin-office.jpg",
+  "../../assets/images/trcac_entry.jpg",
+  "../../assets/images/trcac_building.jpg",
+  "../../assets/images/trcac_library.jpg",
+  "../../assets/images/trcac_lab.jpg",
 ];
 let currentIndex = 0;
 
@@ -138,10 +136,8 @@ function changeHeroBackground() {
   currentIndex = (currentIndex + 1) % images.length;
 }
 
-// Change every 5 seconds
 setInterval(changeHeroBackground, 5000);
 
-// Set initial background
 window.addEventListener("load", () => {
   hero.style.backgroundImage = `url('${images[0]}')`;
 });
