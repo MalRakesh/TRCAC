@@ -1,7 +1,7 @@
 :root {
-    --primary-color: #0f3460;
-    --secondary-color: #1e90ff;
+    --primary-color: #0f3460;        /* Deep Blue - Trust */
+    --secondary-color: #1e90ff;      /* Royal Blue - Links */
+    --accent-color: #ff6b6b;         /* Coral Red - Accent */
     --background-color: #ffffff;
     --text-color: #222222;
-    --accent-color: #ff6b6b;
 }

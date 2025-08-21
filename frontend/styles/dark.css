@@ -1,8 +1,7 @@
-/* frontend/styles/dark.css */
 :root {
     --background-color: #121212;
     --text-color: #eeeeee;
-    --primary-color: #F75C03;
-    --secondary-color: #F75C03;
-    --accent-color: #F75C03;
+    --primary-color: #F75C03;        /* Vibrant Orange */
+    --secondary-color: #FF8A3C;      /* Warm Orange */
+    --accent-color: #FFD166;         /* Yellow-Orange for contrast */
 }

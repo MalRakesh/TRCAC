@@ -190,7 +190,7 @@ body {
 }
 
 .btn.primary-btn:hover {
-    background-color: #0f3460;
+    background-color: var(--primary-color);
 }
 
 /* Why Choose Us */
