@@ -17,12 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         echo "<script>
             alert('Login successful! Redirecting to " . ucfirst($row['role']) . " Dashboard...');
-            window.location.href='../pages/dashboard/dashboard.php';
+            window.location.href='../../frontend/pages/dashboard/dashboard.php';
         </script>";
     } else {
         echo "<script>
             alert('Invalid credentials. Please try again.');
-            window.location.href='../pages/login.html';
+            window.location.href='../../frontend/pages/login.html';
         </script>";
     }
 }

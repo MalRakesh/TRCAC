@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!str_ends_with($email, '@trcac.org.in')) {
         echo "<script>
             alert('Please use your TRCAC-provided email (e.g., xyz@trcac.org.in) to register.');
-            window.location.href='../pages/register.html';
+            window.location.href='../../frontend/pages/register.html';
         </script>";
         exit;
     }
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($check->num_rows > 0) {
         echo "<script>
             alert('Email already registered. Please login.');
-            window.location.href='../pages/login.html';
+            window.location.href='../../frontend/pages/login.html';
         </script>";
         exit;
     }
@@ -44,12 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($conn->query($sql) === TRUE) {
         echo "<script>
             alert('Registration successful! You can now login as $role.');
-            window.location.href='../pages/login.html';
+            window.location.href='../../frontend/pages/login.html';
         </script>";
     } else {
         echo "<script>
             alert('Error: " . $conn->error . "');
-            window.location.href='../pages/register.html';
+            window.location.href='../../frontend/pages/register.html';
         </script>";
     }
 }
