@@ -205,19 +205,6 @@
     <!-- Scripts -->
     <script src="../scripts/main.js"></script>
 
-    <script>
-        // Copy Credentials Function
-            function copyCredentials(email, password) {
-                const text = `Email: ${email} | Password: ${password}`;
-                navigator.clipboard.writeText(text).then(() => {
-                    showToast();
-                }).catch(err => {
-                    console.error('Copy failed', err);
-                    alert('Copy failed. Please copy manually.');
-                });
-            }
-
-    </script>
 </body>
 
 </html>
