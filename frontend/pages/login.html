@@ -105,6 +105,35 @@
             cursor: pointer;
             z-index: 1000;
         }
+
+                /* Demo Accounts */
+        .demo-accounts {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .demo-accounts h3 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        .demo-list {
+            list-style: none;
+            padding: 0;
+        }
+        .demo-item {
+            margin-bottom: 0.8rem;
+        }
+        .demo-item strong {
+            display: block;
+            color: #ffd700;
+        }
+        .demo-item p {
+            margin: 0.3rem 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
     </style>
 </head>
 
@@ -136,6 +165,34 @@
                 <p style="margin-top: 1rem; text-align:center;">
                     Don't have an account? <a href="register.html" style="color: #ffd700;">Register</a>
                 </p>
+
+                <!-- Demo Accounts -->
+                <div class="demo-accounts">
+                    <h3>Demo Accounts</h3>
+                    <ul class="demo-list">
+                        <li class="demo-item">
+                            <strong>Student</strong>
+                            <p>Email: 2024-11A-034@trcac.org.in</p>
+                            <p>Password: student123</p>
+                        </li>
+                        <li class="demo-item">
+                            <strong>Teacher</strong>
+                            <p>Email: rajiv.sharma@trcac.org.in</p>
+                            <p>Password: teacher123</p>
+                        </li>
+                        <li class="demo-item">
+                            <strong>HOD</strong>
+                            <p>Email: hod.cse@trcac.org.in</p>
+                            <p>Password: hod123</p>
+                        </li>
+                        <li class="demo-item">
+                            <strong>Admin</strong>
+                            <p>Email: admin@trcac.org.in</p>
+                            <p>Password: admin123</p>
+                        </li>
+                    </ul>
+                </div>
+
             </form>
         </div>
     </div>
@@ -147,6 +204,20 @@
 
     <!-- Scripts -->
     <script src="../scripts/main.js"></script>
+
+    <script>
+        // Copy Credentials Function
+            function copyCredentials(email, password) {
+                const text = `Email: ${email} | Password: ${password}`;
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast();
+                }).catch(err => {
+                    console.error('Copy failed', err);
+                    alert('Copy failed. Please copy manually.');
+                });
+            }
+
+    </script>
 </body>
 
 </html>
