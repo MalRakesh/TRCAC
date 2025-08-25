@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B.Sc. (IT) Dashboard - TRCAC</title>
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <link rel="stylesheet" href="../../styles/light.css" id="theme-style" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        .dashboard-main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), #0c2a4d);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background-color: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card h4 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .stat-card p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin: 0.3rem 0 0;
+        }
+
+        .course-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background-color: var(--background-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-icon {
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 2.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-content h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .course-content p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            margin: 0 0 1rem 0;
+        }
+
+        .btn-enroll {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn-enroll:hover {
+            background-color: var(--accent-color);
+        }
+
+        .assignment-list {
+            background-color: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin: 2rem 0;
+        }
+
+        .assignment-list h3 {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .assignment-item {
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-main {
+                padding: 1rem;
+            }
+
+            .welcome-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="dashboard bsc-it">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="../../assets/images/logo.png" alt="TRCAC Logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#" class="active">Profile</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#assignments">Assignments</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <button class="toggle-theme"><i class="fas fa-moon"></i></button>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h2>Welcome, B.Sc. (IT) Student!</h2>
+            <p>Access your IT courses, coding labs, and project resources.</p>
+        </section>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-laptop-code"></i>
+                <h4>6</h4>
+                <p>IT Courses</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-calendar-check"></i>
+                <h4>96%</h4>
+                <p>Attendance</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>A+</h4>
+                <p>Average Grade</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-code"></i>
+                <h4>4</h4>
+                <p>Pending Tasks</p>
+            </div>
+        </div>
+
+        <!-- IT Courses Section -->
+        <section id="courses" class="course-section">
+            <h3>Your B.Sc. (IT) Courses</h3>
+            <div class="course-grid">
+                <!-- Course 1 -->
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="course-content">
+                        <h4>Programming in C & C++</h4>
+                        <p>Learn core programming concepts and OOP.</p>
+                        <a href="https://www.youtube.com/watch?v=87SH2Cn0s9A" target="_blank" class="btn-enroll">Watch
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="course-content">
+                        <h4>Database Management</h4>
+                        <p>MySQL, SQL queries, normalization, and design.</p>
+                        <a href="https://www.youtube.com/watch?v=HXV3zeQKqGY" target="_blank" class="btn-enroll">Watch
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="course-content">
+                        <h4>Computer Networks</h4>
+                        <p>TCP/IP, DNS, HTTP, and network security basics.</p>
+                        <a href="https://www.youtube.com/watch?v=qiQR5rTSshw" target="_blank" class="btn-enroll">Watch
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <div class="course-content">
+                        <h4>Web Development</h4>
+                        <p>HTML, CSS, JavaScript, and React fundamentals.</p>
+                        <a href="https://www.youtube.com/watch?v=Ejkb_YfYFK0" target="_blank" class="btn-enroll">Watch
+                            Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 5 -->
+                <div class="course-card">
+                    <div class="course-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="course-content">
+                        <h4>Computer Architecture</h4>
+                        <p>CPU, Memory, I/O systems, and organization.</p>
+                        <a href="https://www.youtube.com/watch?v=0vF05PBC9dA" target="_blank" class="btn-enroll">Watch
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assignments -->
+        <section id="assignments" class="assignment-list">
+            <h3>New Assignments</h3>
+            <div class="assignment-item">
+                <strong>Web Dev Assignment</strong><br>
+                Create a responsive portfolio using HTML, CSS, JS.<br>
+                <small>Due: 10 Sep 2025</small>
+            </div>
+            <div class="assignment-item">
+                <strong>DBMS Project</strong><br>
+                Design a student management system using MySQL.<br>
+                <small>Due: 15 Sep 2025</small>
+            </div>
+            <div class="assignment-item">
+                <strong>C++ Program</strong><br>
+                Implement a stack using arrays.<br>
+                <small>Due: 12 Sep 2025</small>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="course-section">
+            <h3>Mini Projects</h3>
+            <div class="course-grid">
+                <div class="course-card">
+                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?rel=0&showinfo=0" frameborder="0"
+                        allowfullscreen></iframe>
+                    <div class="course-content">
+                        <h4>Build a Calculator</h4>
+                        <p>Use HTML, CSS, JS to create a working calculator.</p>
+                        <a href="https://www.youtube.com/watch?v=tgbNymZ7vqY" target="_blank"
+                            class="btn-enroll">Tutorial</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <iframe
+                        src="https://codesandbox.io/embed/react-template-forked-7zjgg?fontsize=14&hidenavigation=1&theme=dark"
+                        frameborder="0"
+                        sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+                    <div class="course-content">
+                        <h4>React To-Do App</h4>
+                        <p>Practice React with a simple task manager.</p>
+                        <a href="https://codesandbox.io/s/react-template-forked-7zjgg" target="_blank"
+                            class="btn-enroll">Try Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            &copy; 2025 TRCAC. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../../scripts/main.js"></script>
+</body>
+
+</html>
