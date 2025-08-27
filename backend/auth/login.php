@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         echo "<script>
             alert('Login successful! Redirecting to " . ucfirst($row['role']) . " Dashboard...');
-            window.location.href='../../frontend/pages/dashboard/dashboard.php';
+            window.location.href='../../frontend/pages/dashboard/student-dashboard.php';
         </script>";
     } else {
         echo "<script>
