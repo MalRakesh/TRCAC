@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Auto-detect role from email
-    $role = $manualRole; // fallback
+    $role = $manualRole;
 
     if (preg_match('/^admin|^system\.admin|^office@/', $email)) {
         $role = 'admin';
@@ -30,11 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Check if email already exists
-    $check = $conn->query("SELECT * FROM users WHERE email='$email'");
+    $check = $conn->query("SELECT * FROM users WHERE email = '$email'");
     if ($check->num_rows > 0) {
         echo "<script>
             alert('Email already registered. Please login.');
-            window.location.href='../../frontend/pages/login.html';
+            window.location.href = '../../frontend/pages/login.html';
         </script>";
         exit;
     }
@@ -44,12 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($conn->query($sql) === TRUE) {
         echo "<script>
             alert('Registration successful! You can now login as $role.');
-            window.location.href='../../frontend/pages/login.html';
+            window.location.href = '../../frontend/pages/login.html';
         </script>";
     } else {
         echo "<script>
             alert('Error: " . $conn->error . "');
-            window.location.href='../../frontend/pages/register.html';
+            window.location.href = '../../frontend/pages/register.html';
         </script>";
     }
 }
