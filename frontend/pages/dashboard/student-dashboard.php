@@ -210,8 +210,26 @@ $stmt->close();
                 <li><a href="#attendance">Attendance</a></li>
                 <li><a href="#results">Results</a></li>
                 <li><a href="#assignments">Assignments</a></li>
+
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-bell"></i></a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Notifications</a></li>
+                        <li><a href="#">Notices</a></li>
+                        <li><a href="#">New Job Updates</a></li>
+                        <li><a href="./pages/events.html">Events</a></li>
+                    </ul>
+                </li>
+                <!-- Logout Button -->
+            <div class="header-actions">
+                <a href="../../logout.php" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
             </ul>
+        
         </nav>
+
         <button class="hamburger"><i class="fas fa-bars"></i></button>
         <button class="toggle-theme"><i class="fas fa-moon"></i></button>
     </header>
