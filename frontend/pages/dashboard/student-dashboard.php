@@ -226,6 +226,7 @@ $stmt->close();
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
             </div>
+            <a href="profile-edit.php" class="btn-enroll">Edit Profile</a>
             </ul>
         
         </nav>
