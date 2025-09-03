@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // ✅ Auto-insert into respective profile table (only name & email)
     try {
         if ($role === 'student') {
-            $profile_sql = "INSERT INTO student_profiles (user_id, email, name) VALUES (?, ?, ?)";
+            // $profile_sql = "INSERT INTO student_profiles (user_id, email, name) VALUES (?, ?, ?)";
         } elseif ($role === 'teacher') {
             $profile_sql = "INSERT INTO teacher_profiles (user_id, email, name) VALUES (?, ?, ?)";
         } elseif ($role === 'hod') {
