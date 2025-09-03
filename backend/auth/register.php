@@ -2,12 +2,29 @@
 include '../db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $conn->real_escape_string($_POST['name']);
-    $email = $conn->real_escape_string($_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    // Sanitize inputs
+    $name = trim($conn->real_escape_string($_POST['name']));
+    $email = trim($conn->real_escape_string($_POST['email']));
+    $password = $_POST['password'];
     $manualRole = $conn->real_escape_string($_POST['role']);
 
-    // Validate email domain
+    // Validate inputs
+    if (empty($name) || empty($email) || empty($password)) {
+        echo "<script>
+            alert('All fields are required.');
+            window.location.href='../../frontend/pages/register.html';
+        </script>";
+        exit;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>
+            alert('Invalid email format.');
+            window.location.href='../../frontend/pages/register.html';
+        </script>";
+        exit;
+    }
+
     if (!str_ends_with($email, '@trcac.org.in')) {
         echo "<script>
             alert('Please use your TRCAC-provided email (e.g., xyz@trcac.org.in)');
@@ -28,8 +45,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $role = 'admin';
     }
 
+    if (!in_array($role, ['student', 'teacher', 'hod', 'admin'])) {
+        echo "<script>
+            alert('Invalid role detected.');
+            window.location.href='../../frontend/pages/register.html';
+        </script>";
+        exit;
+    }
+
+    // Hash password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    if (!$hashed_password) {
+        die("Password hashing failed.");
+    }
+
     // Check if email already exists
-    $check = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
+    if (!$check) {
+        die("Prepare failed: " . $conn->error);
+    }
     $check->bind_param("s", $email);
     $check->execute();
     if ($check->get_result()->num_rows > 0) {
@@ -43,7 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // ✅ Insert into users table
     $sql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $name, $email, $password, $role);
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+    $stmt->bind_param("ssss", $name, $email, $hashed_password, $role);
 
     if (!$stmt->execute()) {
         die("Error inserting user: " . $stmt->error);
@@ -52,21 +89,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_id = $stmt->insert_id;
     $stmt->close();
 
-    // ✅ Auto-insert into respective profile table (only name & email)
+    // ✅ Insert into respective profile table (only name & email)
     try {
         if ($role === 'student') {
-            // $profile_sql = "INSERT INTO student_profiles (user_id, email, name) VALUES (?, ?, ?)";
+            $profile_sql = "INSERT IGNORE INTO student_profiles (user_id, email, name) VALUES (?, ?, ?)";
         } elseif ($role === 'teacher') {
-            $profile_sql = "INSERT INTO teacher_profiles (user_id, email, name) VALUES (?, ?, ?)";
+            $profile_sql = "INSERT IGNORE INTO teacher_profiles (user_id, email, name) VALUES (?, ?, ?)";
         } elseif ($role === 'hod') {
-            $profile_sql = "INSERT INTO hod_profiles (user_id, email, name) VALUES (?, ?, ?)";
+            $profile_sql = "INSERT IGNORE INTO hod_profiles (user_id, email, name) VALUES (?, ?, ?)";
         } elseif ($role === 'admin') {
-            $profile_sql = "INSERT INTO admin_profiles (user_id, email, name) VALUES (?, ?, ?)";
+            $profile_sql = "INSERT IGNORE INTO admin_profiles (user_id, email, name) VALUES (?, ?, ?)";
         } else {
             throw new Exception("Invalid role: $role");
         }
 
         $profile_stmt = $conn->prepare($profile_sql);
+        if (!$profile_stmt) {
+            error_log("Profile prepare failed: " . $conn->error);
+            throw new Exception($conn->error);
+        }
+
         $profile_stmt->bind_param("iss", $user_id, $email, $name);
         $profile_stmt->execute();
         $profile_stmt->close();
