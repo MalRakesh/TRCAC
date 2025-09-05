@@ -73,12 +73,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     );
 
     if ($stmt->execute()) {
-        echo "<script>alert('Profile updated successfully!'); window.location.href='student-dashboard.php';</script>";
+        // ✅ Fixed redirect
+        echo "<script>
+            alert('Profile updated successfully!');
+            window.location.href = 'student-dashboard.php';
+        </script>";
     } else {
         echo "<script>alert('Update failed: " . $stmt->error . "');</script>";
     }
     $stmt->close();
-} // ✅ Missing } tha — ab add kiya
+    exit; // ✅ Prevent HTML render
+}
 ?>
 
 
@@ -192,11 +197,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h2>Edit Your Profile</h2>
         <form method="POST" enctype="multipart/form-data">
             <!-- Profile Image -->
-            <div class="profile-image-preview">
-                <img src="../../../uploads/profiles/<?= $profile['profile_image'] ?: 'default.jpg' ?>" alt="Profile Photo">
-                <label for="profile_image">Change Photo</label>
-                <input type="file" name="profile_image" id="profile_image" accept="image/*">
-            </div>
+<div class="profile-image-preview">
+    <img src="../../uploads/profiles/<?= htmlspecialchars($profile['profile_image'] ?: 'default.jpg') ?>" alt="Profile Photo">
+    <input type="file" name="profile_image" accept="image/*">
+</div>
 
             <!-- Name -->
             <div class="form-group">
