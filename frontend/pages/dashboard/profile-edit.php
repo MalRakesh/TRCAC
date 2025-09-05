@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'student') {
 include '../../../backend/db.php';
 $email = $_SESSION['email'];
 
-// Fetch student data
 $stmt = $conn->prepare("SELECT * FROM student_profiles WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
@@ -21,7 +20,6 @@ if ($result->num_rows == 0) {
 $profile = $result->fetch_assoc();
 $stmt->close();
 
-// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $conn->real_escape_string($_POST['name']);
     $phone = $conn->real_escape_string($_POST['phone']);
@@ -30,29 +28,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $guardian_name = $conn->real_escape_string($_POST['guardian_name']);
     $father_name = $conn->real_escape_string($_POST['father_name']);
     $mother_name = $conn->real_escape_string($_POST['mother_name']);
-    $class_10_percentage = floatval($_POST['class_10_percentage']);
-    $class_12_percentage = floatval($_POST['class_12_percentage']);
-    $enrollment_year = intval($_POST['enrollment_year']);
+    $class_10_percentage = !empty($_POST['class_10_percentage']) ? floatval($_POST['class_10_percentage']) : null;
+    $class_12_percentage = !empty($_POST['class_12_percentage']) ? floatval($_POST['class_12_percentage']) : null;
+    $enrollment_year = !empty($_POST['enrollment_year']) ? intval($_POST['enrollment_year']) : null;
     $course_code = $conn->real_escape_string($_POST['course_code']);
     $year_level = $conn->real_escape_string($_POST['year_level']);
 
     // Handle profile image upload
-    $profile_image = $profile['profile_image']; // Keep old image by default
+    $profile_image = $profile['profile_image'];
     if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] == 0) {
-        $uploadDir = '../../../uploads/profiles/';
+        $uploadDir = '../../uploads/profiles/';
         $fileName = time() . '_' . basename($_FILES['profile_image']['name']);
         $targetPath = $uploadDir . $fileName;
         $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
-
         $fileType = strtolower(pathinfo($targetPath, PATHINFO_EXTENSION));
+
         if (in_array($fileType, $allowedTypes) && $_FILES['profile_image']['size'] <= 5000000) {
             if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $targetPath)) {
                 if ($profile['profile_image'] != 'default.jpg') {
-                    unlink($uploadDir . $profile['profile_image']); // Delete old image
+                    @unlink($uploadDir . $profile['profile_image']);
                 }
                 $profile_image = $fileName;
             } else {
-                echo "<script>alert('Failed to upload image.');</script>";
+                echo "<script>alert('Failed to upload image. Check folder permissions.');</script>";
             }
         } else {
             echo "<script>alert('Invalid file type or size too large.');</script>";
@@ -77,11 +75,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt->execute()) {
         echo "<script>alert('Profile updated successfully!'); window.location.href='student-dashboard.php';</script>";
     } else {
-        echo "<script>alert('Error: " . $conn->error . "');</script>";
+        echo "<script>alert('Update failed: " . $stmt->error . "');</script>";
     }
     $stmt->close();
-}
+} // ✅ Missing } tha — ab add kiya
 ?>
+
+
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
